@@ -1,17 +1,16 @@
-data segment
-	text1 dw 'ab'
-	text2 dd 'ab'
+.386
+data segment use16
 data ends
 
-code segment
-assume cs:code, ds:data
+code segment use16
+assume cs:code
 main:
-	mov ax, data
-	mov ds, ax
-	mov ax, text1
-	mov ax, [text1]
-	mov ax, text1[1]
-	mov ax, offset text1
+	mov eax, 10h
+	mov ebx, 10
+	mul bx
+	mov ax, 0
+	mov bx, 0
+	jmp eax
 	mov ah, 4Ch
 	int 21h
 code ends
